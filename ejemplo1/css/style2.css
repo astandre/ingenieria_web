@@ -1,0 +1,75 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+header {
+	width: 100%;
+}
+header h1{
+	text-align: center;
+	width: 45%;
+	display: inline-block;
+	background: #FFE20B;
+	padding-left: 2em;
+	padding: 1%;
+
+}
+header form{
+
+	width: 45%;
+	display: inline-block;
+	text-align: center;
+	background: #FFE20B;
+	padding: 1%;
+
+	
+}
+nav {
+	padding-left: 2em;
+	background: #FFE20B;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+nav a{
+	width: 20%;
+	text-align: center;
+	display:  inline-block;
+}
+main{
+	width: 100%;
+	margin-bottom: 3px;
+}
+
+section h3{
+	background: #FFE20B;
+	text-align: center;
+	width: : 100px;
+	padding: 5%;
+	margin-bottom: 3px;
+	
+}
+
+section h4{
+	display: inline-block;
+	background: #FFE20B;
+	text-align: center;
+	width: 15%;
+	padding: 2%;
+	margin-bottom: 3px;
+	
+}
+section article{
+	display: inline-block;
+	background: #FFE20B;
+	text-align: center;
+	width: 39%;
+	padding: 5%;
+	margin-bottom: 3px;
+
+}
+footer{
+	background: #FFE20B;
+	text-align: center;
+	padding: 1%;
+}
