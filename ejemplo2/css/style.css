@@ -1,0 +1,179 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    background: #f2f2f2;
+    height: 100%;
+}
+h2{
+    font-size: 3em;
+    text-transform: uppercase;
+}
+header {
+    background: url(../images/bg_bird.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;
+    height: 100%;
+}
+
+header h1 {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    padding: 1em;
+    text-shadow: 3px 3px 4px #000;
+}
+
+header h1 span.slogan {
+    font-size: 0.6em;
+}
+
+nav {
+    width: 30%;
+    float: right;
+    margin-right: 3em;
+   
+}
+
+nav a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    text-shadow: 2px 2px 3px #000;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    letter-spacing: 2px;
+    transition: all 0.4s ease-in-out;
+    margin-bottom: 2px;
+}
+
+nav:hover a {
+    text-shadow: 0px 0px 10px #fff;
+    color: transparent;
+}
+
+nav a:hover {
+    background: transparent;
+    text-shadow: 1px 1px 10px #fff;
+    color: #c4d85a;
+}
+
+.firstMenu {
+    border-radius: 15px 15px 0 0;
+    
+}
+
+.lastMenu {
+    border-radius: 0 0 15px 15px;
+    
+}
+main{
+    margin: 0 auto;
+    width: 90%;
+    padding: 4em;
+}
+.service .database .types .contacts{
+    padding: 14em 1em;
+}
+.serviceDetail, .typeDetail{
+    width: 33%;
+    background: #000;
+    display: inline-block;
+    color: #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #333;
+}
+.serviceDetail img, .typeDetail img{
+    width: 100%;
+    transition: .5s ease-in-out;
+    border-radius: 10px 10px 0 0;
+}
+.serviceDetail img:hover{
+    filter: saturate(180%);
+    transform: scale(1.3);
+    transition: 1.5s ease-in-out;
+}
+.serviceDetail h3 , .serviceDetail p{
+    padding: 1em;
+        
+}
+.serviceDetail p{
+    text-align: justify;
+}
+.typeDetail h3{
+    padding: 0.5em 0;
+    text-align: center;
+}
+.typeDetail img:hover{
+    border-radius: 50%;
+/*    transform: rotate(360deg);*/
+/*    box-shadow: 4px 4px 6px 0 #fff;*/
+}
+footer{
+    background: #000;
+    color: #ccc;
+    text-align: center;
+}
+footer h6{
+    padding: 3em 0;
+}
+
+@media screen and (max-width: 480px){
+    .typeDetail, .serviceDetail{
+        display: block; 
+        width: 100%;
+        margin-bottom: 1em;
+       
+    }
+}
+@media screen and (max-width: 768px){
+    .typeDetail, .serviceDetail{
+        display: block; 
+        width: 100%;
+        margin-bottom: 1em;
+       
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.services .database .types .contacts {
+    
+}
+
+.services .database .types .contacts{
+    background: #000;
+    
+}
