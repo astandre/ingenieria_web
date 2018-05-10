@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practica php</title>
+</head>
+<body>
+    <header>
+        <h1>Formularios PHP</h1>
+    </header>
+    <main>
+        <form action="internas/procesar.php" method="post">
+           <label for="">Nombres: </label> <br>
+            <input type="text" name="nombres" placeholder="Nombres" required> <br>
+            <label for="">Apellidos: </label> <br>
+            <input type="text" name="apellidos" placeholder="Apellidos" required > <br>
+            <label for="">Telefono: </label> <br>
+            <input type="number" name="telefono" placeholder="Teléfono"> <br>
+            <label for="">Email: </label> <br>
+            <input type="email" name="correo" placeholder="Correo" required> <br>
+<!--            <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento"> <br>-->
+            <label for="">Cedula: </label> <br>
+            <input type="number" name="cedula" placeholder="Cédula" required> <br>
+            <label for="">Seleccione el tipo de participante: </label> <br>
+               <select name="tipo" id="">
+                <option value="0">Profesor</option>
+                <option value="1">Estudiante</option>
+                <option value="2">Externo</option>
+            </select> <br>
+            <label for="">Cursos ofertados</label> <br>
+            <input type="radio" name="curso" value="1"> Ionic<br>
+            <input type="radio" name="curso" value="2"> Android<br>
+            <input type="radio" name="curso" value="3"> React <br>
+            <label for="">Talleres ofertados</label> <br>
+            <input type="checkbox" name="taller_html" value ="1"> HTML <br>
+            <input type="checkbox" name="taller_css" value ="2"> CSS <br>
+            <input type="checkbox" name="taller_vis" value ="3"> Visualizacion <br>
+            <input type="checkbox" name="taller_coci" value ="4"> Cocina <br>
+            <button>Guardar</button>
+        </form>
+    </main>
+</body>
+</html>

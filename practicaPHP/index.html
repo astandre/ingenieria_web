@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practica php</title>
+</head>
+<body>
+    <header>
+        <h1>Formularios PHP</h1>
+    </header>
+    <main>
+        <form action="internas/procesar.php" method="post">
+            <input type="text" name="nombres" placeholder="Nombres" required> <br>
+            <input type="text" name="apellidos" placeholder="Apellidos" > <br>
+            <input type="number" name="telefono" placeholder="Teléfono"> <br>
+            <input type="email" name="correo" placeholder="Correo" > <br>
+            <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento"> <br>
+            <input type="number" name="cedula" placeholder="Cédula"> <br>
+            <select name="tipo" id="">
+                <option value="">Profesor</option>
+                <option value="">Estudiante</option>
+                <option value="">Otro</option>
+            </select> <br>
+            <button>Guardar</button>
+        </form>
+    </main>
+</body>
+</html>
