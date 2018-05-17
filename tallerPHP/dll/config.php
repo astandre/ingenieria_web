@@ -1,6 +1,6 @@
 <?php 
 //Datos de la aplicacion
-$site_name = "Sistema de registro UTPL";
+$site_name = "Inscripción | Evento - UTPL";
 $url_site = "http://127.0.0.1/ingenieriaweb/tallerPHP/";
 //    Datos de la base de datos 
 $db_usr = "root";

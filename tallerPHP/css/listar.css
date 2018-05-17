@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+html,
+body {
+    background: #f2f2f2;
+    height: 100%;
+
+}
+
+header {
+    margin-left: 41%;
+    margin-bottom: 1em;
+}
+
+table {
+    background-color: #6892f2;
+    width: 70%;
+    padding: 1% 2% 1% 2%;
+
+    margin-left: 15%;
+    margin-bottom: 2em;
+}
+table tr{
+    text-align: left;
+    
+}
+
+
+/*Efecto de tarjeta*/
+
+.card {
+    /*background-color: white;*/
+    border-radius: 2px;
+    /*    display: inline-block;*/
+    /*height: 300px;*/
+    /*    margin: 1rem;*/
+    /*    position: relative;*/
+    /*    color: white;*/
+    /*width: 300px;*/
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
