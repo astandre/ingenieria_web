@@ -54,6 +54,7 @@ h3{
 table{
     width: 100%;
 }
+
 .tabla-detalle{
     background-color: gainsboro;
     
@@ -67,6 +68,7 @@ table{
 .codigo{
     text-align: center;
 }
+
 
 @media screen and (max-width: 480px) {
     main {

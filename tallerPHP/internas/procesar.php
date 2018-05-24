@@ -19,11 +19,18 @@ $taller_html = 0;
 $taller_css = 0;
 $taller_vis = 0;
 $taller_coci = 0;
-extract($_POST);
+extract($_GET);
+           
+include ("../dll/config.php");
+include ("../dll/mysql.php");
+$sql = "SELECT * FROM registros where id=".$id;
+$registros = mysqli_query($link,$sql) or die ("Error al obtener todos los registros ".mysqli_error);
+$registro = mysqli_fetch_array($registros,MYSQLI_ASSOC);
+
 $costo_evento = 100;
 $costo_curso = 80;
 $costo_taller = 10;
-
+    
 $desc_docente = 10;
 $desc_alumno = 20;
 $cont_taller = 0;
@@ -36,23 +43,13 @@ $lista[2] = "Externo";
 $lista_curso[0] = "Ionic";
 $lista_curso[1] = "Andoroid";
 $lista_curso[2] = "React";
+    
+$sql2 = "select registrotaller.id_registro, talleres.id,talleres.nombre from registrotaller inner join talleres on registrotaller.id_taller = talleres.id where registrotaller.id_registro =".$id;
+$registros2 = mysqli_query($link,$sql2) or die ("Error al obtener todos los registros ".mysqli_error);
+//while ($registro2 = mysqli_fetch_array($registros2,MYSQLI_ASSOC)){
+//    $cont_taller=$cont_taller+1;
+//}
 
-if ($taller_html!=0){
-    $cont_taller = $cont_taller +1;
-}
-if ($taller_css!=0){
-    $cont_taller = $cont_taller +1;
-}
-if ($taller_vis!=0){
-    $cont_taller = $cont_taller +1;
-}
-if ($taller_coci!=0){
-    $cont_taller = $cont_taller +1;
-}
-$costo_total_taller = $costo_taller * $cont_taller;
-$costo_total = $costo_total_taller +$costo_evento;
-$costo_total = $costo_total + $costo_curso;
-$valor_desc = 0;
     ?>
         <header>
             <h1>
@@ -67,7 +64,7 @@ $valor_desc = 0;
                         <strong>Cedula:</strong>
                     </td>
                     <td class="info">
-                        <?php echo $cedula ?>
+                        <?php echo $registro['cedula'] ?>
                     </td>
                 </tr>
                 <tr>
@@ -75,7 +72,7 @@ $valor_desc = 0;
                         <strong>Nombre: </strong>
                     </td>
                     <td class="info">
-                        <?php echo $nombres." ".$apellidos ?>
+                        <?php echo $registro['nombres']." ".$registro['apellidos'] ?>
                     </td>
                 </tr>
                 <tr>
@@ -83,7 +80,7 @@ $valor_desc = 0;
                         <strong>Correo: </strong>
                     </td>
                     <td class="info">
-                        <?php echo $correo ?>
+                        <?php echo $registro['correo'] ?>
                     </td>
                 </tr>
             </table>
@@ -102,14 +99,29 @@ $valor_desc = 0;
                 <tr>
                     <td>
                        Costo por curso
-                        <?php echo "(".$lista_curso[$curso-1].")"?> :</td>
+                        <?php echo "(".$lista_curso[$registro['curso']].")"?> :</td>
                     <td class="detalle">
                         <?php echo $costo_curso?>$
                     </td>
                 </tr>
                 <tr>
-                    <td>Costo total por talleres
-                        <?php echo $cont_taller ?>: </td>
+ 
+                       <td>Costo total por talleres:
+                   <br>
+                      
+                       <?php
+                                                  
+while ($registro2 = mysqli_fetch_array($registros2,MYSQLI_ASSOC)){
+  $cont_taller=$cont_taller+1;
+    echo "<strong>".$registro2['nombre']."</strong><br>";
+}
+                        $costo_total_taller = $costo_taller * $cont_taller;
+$costo_total = $costo_total_taller +$costo_evento;
+$costo_total = $costo_total + $costo_curso;
+$valor_desc = 0;
+                        
+                          ?>
+                        </td>
                     <td class="detalle">
                         <?php echo $costo_total_taller ?>$
                     </td>
@@ -117,28 +129,28 @@ $valor_desc = 0;
                 <tr>
                     <td>
                         <?php
-                if($tipo ==0){
-    echo "Descuento por ".$lista[$tipo]." ".$desc_docente;
+                if($registro['tipo'] ==0){
+    echo "Descuento por ".$lista[$registro['tipo']]." ".$desc_docente;
                 }
-                if($tipo ==1){
-    echo "Descuento por ".$lista[$tipo]." ".$desc_alumno;
+                if($registro['tipo'] ==1){
+    echo "Descuento por ".$lista[$registro['tipo']]." ".$desc_alumno;
                 }
-                        if($tipo ==2){
+                        if($registro['tipo'] ==2){
 
     echo "No hay descuento";
 }
                 ?>%: </td>
                     <td class="detalle">
                         <?php
-                if($tipo ==0){
+                if($registro['tipo'] ==0){
       $valor_desc = ($costo_total * $desc_docente) / 100;
                     echo "-".$valor_desc."$";
                 }
-                if($tipo ==1){
+                if($registro['tipo'] ==1){
     $valor_desc = ($costo_total * $desc_alumno) / 100;
                     echo "-".$valor_desc."$";
                 }
-                        if($tipo ==2){
+                        if($registro['tipo'] ==2){
     echo 0;
 }
                 ?>

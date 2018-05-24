@@ -20,7 +20,13 @@ include("dll/mysql.php");
 
 <body>
     <header>
-        <h1>Formularios de inscripción</h1>
+        <nav class="card">
+            <a href="">Inicio</a>
+            <a href="index.php">Incripcion</a>
+            <a href="internas/listar.php">Listar</a>
+            <a href="">Acerca De</a>
+        </nav>
+         <h1 class="title">Formularios de inscripción</h1>
     </header>
     <main class="card">
         <form action="internas/guardar.php" method="post">
@@ -35,17 +41,17 @@ include("dll/mysql.php");
             <label for="">Email: </label> <br>
             <input type="email" name="correo" placeholder="Correo" required class="inputForm"> <br>
             <label for="">Fecha nacimiento: </label> <br>
-            <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento"> <br>
+            <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento" class="inputForm"> <br>
             <label for="">Cedula: </label> <br>
             <input type="number" name="cedula" placeholder="Cédula" required class="inputForm"> <br>
             <label for="">Seleccione el tipo de participante: </label> <br>
-            <select name="tipo" id="">
+            <select name="tipo" id="" class="inputForm">
                 <option value="0" >Profesor</option>
                 <option value="1">Estudiante</option>
                 <option value="2">Externo</option>
             </select> <br>
             <label for="">Cursos ofertados: </label> <br>
-            <select name="curso" id="">
+            <select name="curso" id=""  class="inputForm">
                 <option value="1" > Ionic<br>
                 <option  value="2" > Android<br>
                 <option  value="3" > React <br>
@@ -53,7 +59,7 @@ include("dll/mysql.php");
 
 
             <label for="">Talleres ofertados:</label> <br>
-             <select name="taller_ofer[]" id="" multiple>
+             <select name="taller_ofer[]" id="" multiple class="inputForm">
                           <?php
 $query = "select * from talleres";
 $talleres = mysqli_query($link,$query) or die ('Error al obtener los talleres');
