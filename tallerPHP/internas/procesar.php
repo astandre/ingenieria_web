@@ -44,7 +44,7 @@ $lista_curso[0] = "Ionic";
 $lista_curso[1] = "Andoroid";
 $lista_curso[2] = "React";
     
-$sql2 = "select registrotaller.id_registro, talleres.id,talleres.nombre from registrotaller inner join talleres on registrotaller.id_taller = talleres.id where registrotaller.id_registro =".$id;
+$sql2 = "select registrotaller.id_registro, talleres.id,talleres.nombre,talleres.costo from registrotaller inner join talleres on registrotaller.id_taller = talleres.id where registrotaller.id_registro =".$id;
 $registros2 = mysqli_query($link,$sql2) or die ("Error al obtener todos los registros ".mysqli_error);
 //while ($registro2 = mysqli_fetch_array($registros2,MYSQLI_ASSOC)){
 //    $cont_taller=$cont_taller+1;
@@ -97,9 +97,16 @@ $registros2 = mysqli_query($link,$sql2) or die ("Error al obtener todos los regi
                     </td>
                 </tr>
                 <tr>
+                 <?php
+    $sqlCursos = "SELECT * FROM curso where id_curso =".$registro['curso'];
+$cursos = mysqli_query($link,$sqlCursos) or die ("Error al obtener todos los registros ".mysqli_error);
+$curso= mysqli_fetch_array($cursos,MYSQLI_ASSOC);
+                        $costo_curso = $curso['costo'];
+                       
+?>
                     <td>
                        Costo por curso
-                        <?php echo "(".$lista_curso[$registro['curso']].")"?> :</td>
+                        <?php echo "(". $curso['nombre'].")"?> :</td>
                     <td class="detalle">
                         <?php echo $costo_curso?>$
                     </td>
@@ -110,12 +117,13 @@ $registros2 = mysqli_query($link,$sql2) or die ("Error al obtener todos los regi
                    <br>
                       
                        <?php
-                                                  
+$costo_total_taller = 0 ;     
 while ($registro2 = mysqli_fetch_array($registros2,MYSQLI_ASSOC)){
   $cont_taller=$cont_taller+1;
-    echo "<strong>".$registro2['nombre']."</strong><br>";
+    echo "<strong>".$registro2['nombre']." >>>>> ".$registro2['costo'] ."</strong><br>";
+$costo_total_taller = $costo_total_taller + (int) $registro2['costo'] ;  
 }
-                        $costo_total_taller = $costo_taller * $cont_taller;
+                       
 $costo_total = $costo_total_taller +$costo_evento;
 $costo_total = $costo_total + $costo_curso;
 $valor_desc = 0;

@@ -19,16 +19,23 @@ include("dll/mysql.php");
 </head>
 
 <body>
-    <header>
-        <nav class="card">
+    <header class="card">
+      <h2>Campus Party</h2>
+        <nav >
             <a href="">Inicio</a>
             <a href="index.php">Incripcion</a>
             <a href="internas/listar.php">Listar</a>
+            <a href="internas/cursos.php">Cursos</a>
+            <a href="internas/talleres.php">Talleres</a>
             <a href="">Acerca De</a>
         </nav>
-         <h1 class="title">Formularios de inscripción</h1>
+         
     </header>
-    <main class="card">
+    <h1 class="title">Formularios de inscripción</h1>
+    <main >
+       <section class="card">
+           
+       
         <form action="internas/guardar.php" method="post">
             <label for="">Nombres: </label> <br>
             <input type="text" name="nombres" placeholder="Nombres" required class="inputForm"> <br>
@@ -52,9 +59,20 @@ include("dll/mysql.php");
             </select> <br>
             <label for="">Cursos ofertados: </label> <br>
             <select name="curso" id=""  class="inputForm">
-                <option value="1" > Ionic<br>
-                <option  value="2" > Android<br>
-                <option  value="3" > React <br>
+               <?php
+                $query_cursos = "SELECT * FROM curso";
+                $cursos = mysqli_query($link,$query_cursos) or die ('Error al obtener los talleres');
+                echo $query_cursos;
+                 
+                while ($curso= mysqli_fetch_array($cursos,MYSQLI_ASSOC)){
+                    if($curso['cupos']>0){
+                         echo  "<option value=".$curso['id_curso']." >".$curso['nombre']." | $".$curso['costo']." Disponibles ".$curso['cupos']."<br>";
+                    }else{
+                         echo  "<option value=".$curso['id_curso']." disabled>".$curso['nombre']." | $".$curso['costo']." Disponibles ".$curso['cupos']."<br>";
+                    }
+               
+                }
+                ?>
             </select> <br>
 
 
@@ -64,16 +82,21 @@ include("dll/mysql.php");
 $query = "select * from talleres";
 $talleres = mysqli_query($link,$query) or die ('Error al obtener los talleres');
 while ($taller = mysqli_fetch_array($talleres,MYSQLI_ASSOC)){
-	?>
-                <option  value="<?php echo $taller['id'];?>" class="option">
-                <?php echo $taller['nombre'];?><br>
-                <?php
+	
+                 if ($taller['cupos']>0){
+                     echo   "<option  value=".$taller['id']." class='option' >";
+                     echo $taller['nombre'].' | $'.$taller['costo']." Disponibles(".$taller['cupos'].")<br>";
+                 }else{
+                  echo   "<option  value=".$taller['id']." class='option' disabled>";
+                      echo $taller['nombre']." | $".$taller["costo"]." Disponibles(".$taller['cupos'].")<br>";
+                 }               
 }
 ?>
             </select> <br>
  
                 <button>Guardar</button>
         </form>
+        </section>
     </main>
 </body>
 
